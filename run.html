@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+</head>
+
+<body>
+<h2 align=center>104703031 YICHI CHEN HW4</h2>
+<hr>
+
+<form>
+<!--INPUT1：<input id=source cols="50" rows="5" value="x y z"><br>-->
+<td height=200>INPUT:</td>
+<td height=200>
+     <textarea rows=12 name="input" cols=70>
+     </textarea></td>
+<input type=button value="BUTTON" onClick="execEmscript()">
+
+<td height=200>OUTPUT:</td>
+<td height=200>
+     <textarea id="output" rows=12 cols=70>
+     </textarea></td>
+</form>
+
+
+
+<script>
+var message;
+var point = -1;
+function getArea(){
+    message = document.getElementById('input').value.split('\n');
+}
+function areaInput(){
+    if(point >= message.length - 1){
+        return null;
+    }
+    point += 1;
+    return message[point];
+}
+function execEmscript(){
+    window.console = {
+        log: function(str){
+            document.getElementById("output").value += "\n" + str;
+        }
+    }
+    getArea();
+    run();
+}
+</script>
+
+
+<script async type="text/javascript" src="hw1.js"></script>
+<hr>
+
+</body>
+
+</html>
